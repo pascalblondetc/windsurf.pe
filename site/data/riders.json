@@ -1,0 +1,59 @@
+{
+ "pascal-blondet": {
+  "nombre": "Pascal Blondet",
+  "resultName": "Pascal Blondet",
+  "ciudad": "Lima",
+  "pais": "Perú",
+  "club": "CRL",
+  "bio": "Navego windsurf desde el 2018, inspirado por mis hermanos. Navegué T293 hasta marzo del 2020 y después comencé a navegar iQ FOiL por unos meses.\n\nMe desenganché del windsurf hasta que en el Pacasmayo Classic del 2024 volví a conectar con él gracias a mi hermana Denise. \n\nAhora navego bastante en olas y slalom. El windsurf en olas es mi principal modalidad ya que es en la que mas me divierto gracias a la adrenalina, la coneccion con las olas y la comunidad.\n\nAhora soy coach del equipo en la modalidad iQ FOiL y organizo el CPW junto a más personas.\n\nMi objetivo es hacer que este increíble deporte crezca en el Perú y que quien quiera pueda practicarlo en la modalidad que mas les guste.\n\nNos vemos en el agua!",
+  "sponsors": "Oakley, Spondylus Wetsuits, Solarez.",
+  "instagram": "pascalblondetc",
+  "tiktok": "pascalblondetc",
+  "youtube": "https://www.youtube.com/@pascalblondetc",
+  "web": "",
+  "modalidades": [
+   "olas",
+   "slalom"
+  ],
+  "categorias": [
+   "Pro"
+  ],
+  "rama": "masculina",
+  "foto": "fotos/riders/92d00ee20314.jpg",
+  "album": [
+   {
+    "id": "fotos/riders/7aa176b22371.jpg"
+   },
+   {
+    "id": "fotos/riders/a4197c7fa955.jpg"
+   },
+   {
+    "id": "fotos/riders/cf7960216d63.jpg"
+   },
+   {
+    "id": "fotos/riders/418fb3e471ac.jpg"
+   },
+   {
+    "id": "fotos/riders/f66df2791f93.jpg"
+   },
+   {
+    "id": "fotos/riders/2e91123179a8.jpg"
+   },
+   {
+    "id": "fotos/riders/4a072fa93791.jpg"
+   },
+   {
+    "id": "fotos/riders/f4bc8c425c60.jpg"
+   },
+   {
+    "id": "fotos/riders/755304058c16.jpg"
+   },
+   {
+    "id": "fotos/riders/d67472be5d62.jpg"
+   },
+   {
+    "id": "fotos/riders/e85b0711fc15.jpg"
+   }
+  ]
+ }
+}
