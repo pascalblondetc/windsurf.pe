@@ -1292,24 +1292,35 @@ const RIGS={
   {id:'botavara',n:'Botavara',t:'De carbono, regulable entre 210 y 250 cm, muy rígida para transmitir toda la fuerza de la vela.'},
   {id:'arnes',n:'Pitas de arnés',t:'Largas: en IQFoil se navega casi todo el tiempo enganchado, con el cuerpo colgado lejos de la vela.'},
   {id:'pie',n:'Pie de mástil',t:'Une el aparejo con la tabla. Su posición en el riel cambia cómo vuela la tabla: más adelante la mantiene baja y estable, más atrás la deja subir.'},
-  {id:'tabla',n:'Tabla',t:'Starboard iQFOiL 95: 220 cm de largo, 95 cm de ancho y 196 litros. Corta y muy ancha para despegar rápido y tener palanca sobre el foil.'},
+  {id:'tabla',n:'Tabla',t:'Starboard iQFOiL 95: 220 cm de largo, 95 cm de ancho y 196 litros. Vista de arriba es muy ancha, con nariz redonda y cola cuadrada; de perfil es fina, con la proa levantada y la cola recortada donde va la caja del foil.'},
   {id:'footstraps',n:'Footstraps',t:'Una fila en los bordes y una posición más atrás para la empopada. Te dejan controlar la altura del vuelo con los pies.'},
-  {id:'fmast',n:'Mástil del foil',t:'Mástil de carbono de 95 cm que une la tabla con las alas. Su largo define qué tan alto puede volar la tabla sin que las alas salgan del agua.'},
+  {id:'fmast',n:'Mástil del foil',t:'Mástil de carbono de 95 cm, montado bajo la cola de la tabla, que une la tabla con las alas. Su largo define qué tan alto puede volar la tabla sin que las alas salgan del agua.'},
   {id:'fuselaje',n:'Fuselaje',t:'Barra de 115 cm que sostiene el ala delantera y el estabilizador. Más largo da más estabilidad; más corto, más maniobra.'},
   {id:'ala',n:'Ala delantera',t:'El ala grande (900 cm²). Genera la sustentación que levanta la tabla del agua, como el ala de un avión.'},
   {id:'estab',n:'Estabilizador',t:'Ala trasera chica (255 cm²). Equilibra el foil y controla el cabeceo para que el vuelo sea parejo.'}],
-  svg(){const r=sailRig({base:[268,472],ctrl:[340,250],top:[256,28],headR:[248,30],head:[222,34],leechC:[138,170],clew:[50,322],footC:[118,474],battens:[70,118,166,214,262,370,420],boomY:300,boomSag:4,cams:[3,4,5,6],win:[.07,.17,58],color:'var(--iqfoil)',sleeve:15,hDrop:40,harness:[.22,.4],tack:.025});
-   return `<svg viewBox="0 0 460 610" role="img" aria-label="Partes de un equipo de IQFoil">${water(540)}
-    ${g('fmast',`<path d="M212 492 L226 492 L222 592 L212 592 Z" fill="${K}"/>`)}
-    ${g('fuselaje',`<path d="M150 594 L276 590" stroke="${K}" stroke-width="7" stroke-linecap="round"/>`)}
-    ${g('ala',`<path d="M244 590 Q262 579 300 584 Q304 589 298 593 Q266 600 244 597 Z" fill="${K}"/>`)}
-    ${g('estab',`<path d="M140 592 Q150 586 168 588 Q170 592 167 595 Q152 598 140 597 Z" fill="${K}"/>`)}
-    ${g('vela',r.sail+r.win+r.sleeve+r.battens)}${g('cambers',r.cams)}
+  svg(){const r=sailRig({base:[284,466],ctrl:[352,248],top:[272,26],headR:[264,28],head:[240,32],leechC:[150,168],clew:[58,318],footC:[128,470],battens:[70,118,166,214,262,368,418],boomY:296,boomSag:4,cams:[3,4,5,6],win:[.06,.15,52],color:'var(--iqfoil)',sleeve:15,hDrop:40,harness:[.22,.4],tack:.025});
+   const sail=r.sail.replace('fill="var(--surface)"','fill="color-mix(in srgb,var(--iqfoil) 16%,var(--surface))"');
+   /* tabla iQFOiL 95 de perfil: larga y fina, proa con rocker, cola recortada; el foil va bajo la cola */
+   const board=`<path d="M110 470 L300 467 Q368 465 404 450 Q408 452 405 458 Q382 476 330 482 L176 486 L150 486 L146 481 L110 481 Z" fill="var(--surface)" stroke="${K}" stroke-width="4" stroke-linejoin="round"/><path d="M110 470 L146 469 L146 481 L110 481 Z" fill="var(--iqfoil)" opacity=".75"/>`;
+   /* vista de arriba: ancha (95 cm) con nariz redonda y cola cuadrada */
+   const top=`<g aria-hidden="true" transform="translate(-10 0)"><text x="405" y="30" text-anchor="middle" font-family="${MONO}" font-size="10" letter-spacing="1" fill="var(--muted)">VISTA DE ARRIBA</text>
+     <path d="M373 80 Q373 42 405 42 Q437 42 437 80 L437 190 L431 198 L379 198 L373 190 Z" fill="var(--surface)" stroke="${K}" stroke-width="3" stroke-linejoin="round"/>
+     <path d="M373 172 L437 172 L437 190 L431 198 L379 198 L373 190 Z" fill="var(--iqfoil)" opacity=".75"/>
+     <rect x="403" y="98" width="4" height="26" rx="2" fill="${K}"/>
+     <rect x="399" y="176" width="12" height="16" rx="2" fill="none" stroke="${K}" stroke-width="2"/>
+     <g fill="${K}">${[118,146,166].map(y=>`<rect x="377" y="${y}" width="9" height="5" rx="2.5"/><rect x="424" y="${y}" width="9" height="5" rx="2.5"/>`).join('')}<rect x="400" y="160" width="10" height="5" rx="2.5"/></g>
+     <text x="405" y="214" text-anchor="middle" font-family="${MONO}" font-size="10" fill="var(--ink)">220 × 95 CM</text></g>`;
+   return `<svg viewBox="0 0 460 640" role="img" aria-label="Partes de un equipo de IQFoil">${water(548,460,640)}
+    ${g('fmast',`<path d="M131 486 L149 486 L146 606 L136 606 Z" fill="${K}"/><path d="M128 482 L152 482 L150 488 L130 488 Z" fill="${K}"/>`)}
+    ${g('fuselaje',`<path d="M54 606 L222 606" stroke="${K}" stroke-width="7" stroke-linecap="round"/>`)}
+    ${g('ala',`<path d="M168 603 Q196 597 222 603 Q232 610 226 628 Q223 637 216 638 Q212 636 215 628 Q218 615 206 611 Q186 609 168 609 Z" fill="${K}"/>`)}
+    ${g('estab',`<path d="M60 603 Q76 600 90 604 Q92 608 88 609 L66 609 Q58 607 52 596 Q50 591 54 590 Q58 597 60 603 Z" fill="${K}"/>`)}
+    ${g('vela',sail+r.win+r.sleeve+r.battens)}${g('cambers',r.cams)}
     ${g('mastil',r.mast)}${g('arnes',r.harness)}${g('botavara',r.boom)}
-    ${g('tabla',`<path d="M138 486 Q136 472 152 471 L300 469 Q336 468 352 458 Q354 472 334 484 Q300 494 250 494 L152 494 Q139 494 138 486 Z" fill="var(--surface)" stroke="${K}" stroke-width="4" stroke-linejoin="round"/>`)}
-    ${g('footstraps',`<g fill="none" stroke="${K}" stroke-width="4.5" stroke-linecap="round">${straps([[150,471],[180,470],[212,470]])}</g>`)}
-    ${g('pie',baseJoint(268,474))}
-    <text x="448" y="566" text-anchor="end" font-family="${MONO}" font-size="10" fill="var(--muted)" pointer-events="none">VOLANDO SOBRE EL AGUA</text></svg>`}}
+    ${g('tabla',board+top)}
+    ${g('footstraps',`<g fill="none" stroke="${K}" stroke-width="4.5" stroke-linecap="round">${straps([[118,469],[152,469],[190,468],[226,467]])}</g>`)}
+    ${g('pie',baseJoint(284,467))}
+    <text x="448" y="578" text-anchor="end" font-family="${MONO}" font-size="10" fill="var(--muted)" pointer-events="none">VOLANDO SOBRE EL AGUA</text></svg>`}}
 };
 function rigHTML(k){const R=RIGS[k];return R.svg()+`<div class="parts">${R.parts.map(p=>`<button data-p="${p.id}" aria-pressed="false">${p.n}</button>`).join('')}</div>`+(k==='olas'?`<div class="chips fincfg" role="group" aria-label="Configuración de quillas" hidden>${Object.entries(FINS).map(([id,f])=>`<button class="chip" data-fin="${id}" aria-pressed="${id===FINCFG}">${f.n}</button>`).join('')}</div>`:'')+`<p class="part-info"><span class="muted">Toca una parte del dibujo o un botón.</span></p>`}
 function mountRig(el,k){el.dataset.rig=k;el.innerHTML=rigHTML(k)}
